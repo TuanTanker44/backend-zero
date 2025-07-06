@@ -10,6 +10,8 @@ const localhost = process.env.HOST_NAME // Set the hostname from environment var
 app.set('views', path.join(__dirname, 'views')) // Set the directory for views
 app.set('view engine', 'ejs') // Set EJS as the template engine
 
+//config static files
+app.use(express.static(path.join(__dirname, 'public'))) // Serve static files from the public directory
 
 //khai báo route
 app.get('/', (req, res) => {
