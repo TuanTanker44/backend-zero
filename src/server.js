@@ -1,26 +1,20 @@
-const express = require('express') //commonjs
-const path = require('path') // Import path module for handling file paths
-const app = express() // Import express module
 require('dotenv').config() // Load environment variables from .env file
+
+const express = require('express') //commonjs
+const app = express() // Import express module
+const configViewEngine = require('./config/viewEngine') // Import the view engine configuration
+const webRoutes = require('./routes/web') // Import the web routes
+
+
+
 const port = process.env.PORT || 8888 // Set the port from environment variable
 const localhost = process.env.HOST_NAME // Set the hostname from environment variable
 
-
-//config template engine
-app.set('views', path.join(__dirname, 'views')) // Set the directory for views
-app.set('view engine', 'ejs') // Set EJS as the template engine
-
-//config static files
-app.use(express.static(path.join(__dirname, 'public'))) // Serve static files from the public directory
+//config view engine
+configViewEngine(app)
 
 //khai báo route
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.get('/sample', (req, res) => {
-  res.render('sample.ejs')
-})
+app.use('/', webRoutes) // Use the web routes for the root path
 
 app.listen(port, localhost, () => {
   console.log(`Example app listening at http://${localhost}:${port}`)
