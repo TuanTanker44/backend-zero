@@ -1,10 +1,11 @@
 const express = require('express') //commonjs
 const router = express.Router() // Import express Router for routing
+const { getHomePage, getSamplePage } = require('../controllers/home.Controller') // Import the home controller
 
-//khai báo route
-router.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
+// cấu trúc route
+// router.Method('/route', handler) => {}
+
+router.get('/', getHomePage) // Define a route for the home page using the getHomePage controller
   
 router.get('/sample', (req, res) => {
     res.render('sample.ejs')
