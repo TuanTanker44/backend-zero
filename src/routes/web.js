@@ -8,7 +8,7 @@ router.use(express.urlencoded({ extended: true }));
 // cấu trúc route:
 // router.Method('/route', handler) => {}
 
-router.get('/', getHomePage) // Define a route for the home page using the getHomePage controller
+router.get('/users', getHomePage) // Define a route for the home page using the getHomePage controller
   
 router.get('/sample', getSamplePage);
 

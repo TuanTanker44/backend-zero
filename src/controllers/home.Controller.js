@@ -1,21 +1,11 @@
 const connection = require('../config/database');
-let users = [];
+const { getAllUsers } = require('../services/CRUDService');
 
 
-const getHomePage = (req, res) => {
-    connection.query(
-        'select * from Users', 
-        function (error, results, fields) {
-            if (error) {
-            console.error('Error in query:', error.message);
-            return;
-            }
-            users = results; 
-            console.log('>>>Results: ', results); // Log the results of the query
-
-            console.log('>>>Users: ', users); // Log the users array
-            res.send(JSON.stringify(users));
-    });
+const getHomePage = async (req, res) => {
+    let users = await getAllUsers();
+    console.log('>>>Result: ', users);
+    res.render('users.ejs', { users: users });
 }
 
 const getSamplePage = (req, res) => {
