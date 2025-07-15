@@ -19,7 +19,7 @@ const connection = mysql.createPool({
     port: process.env.DB_PORT,
     waitForConnections: true, // cho phép chờ đợi khi tất cả kết nối đang bận
     connectionLimit: 10, // giới hạn số lượng kết nối đồng thời
-    queueLimit: 0 // không giới hạn hàng đợi kết nối, >0 : giới hạn số lượng hàng đợi khi tất cả kết nối đang bận
+    queueLimit: 0 // =0: không giới hạn hàng đợi kết nối, >0 : giới hạn số lượng hàng đợi khi tất cả kết nối đang bận
 });
   
 module.exports = connection;
