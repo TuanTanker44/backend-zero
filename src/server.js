@@ -4,7 +4,6 @@ const express = require('express') //commonjs
 const app = express() // Import express module
 const configViewEngine = require('./config/viewEngine') // Import the view engine configuration
 const webRoutes = require('./routes/web') // Import the web routes
-const connection = require('./config/database') // Import the database connection
 
 
 const port = process.env.PORT || 8888 // Set the port from environment variable

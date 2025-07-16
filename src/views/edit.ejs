@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/form">Create User</a></li>
+        <li><a href="/users">Users</a></li>
+    </ul>
+    <div class="form-container">
+        <h2>Update User</h2>
+        <form action="/update-user" method="POST">
+
+            <input type="text" class="d-none" name="userId" value="<%= userEdit.id %>" required>
+            
+            <label for="name">Name</label>
+            <input type="text" name="name" placeholder="Enter your name" value="<%= userEdit.name %>" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter your email" value="<%= userEdit.email %>" required>
+
+            <label for="city">City</label>
+            <input type="text" name="city" placeholder="Enter your city" value="<%= userEdit.city %>" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
